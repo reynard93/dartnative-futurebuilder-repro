@@ -1,0 +1,17 @@
+$ dn test --no-pub --no-test-assets --reporter expanded test/future_builder_lifecycle_test.dart
+00:00 +0: loading <repro-root>/test/future_builder_lifecycle_test.dart
+00:00 +0: FutureBuilder ignores completion after dispose
+00:00 +0 -1: FutureBuilder ignores completion after dispose [E]
+  'package:dartnative/src/core.dart': Failed assertion: line 166 pos 12: '<optimized out>': setState() called after dispose()
+  dart:core                                            _AssertionError._throwNew
+  package:dartnative/src/core.dart 166:12              State.setState
+  package:dartnative/src/widgets/builders.dart 325:9   _FutureBuilderState._subscribe.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                           Future.then
+  package:dartnative/src/widgets/builders.dart 322:12  _FutureBuilderState._subscribe
+  package:dartnative/src/widgets/builders.dart 296:5   _FutureBuilderState.initState
+  test/future_builder_lifecycle_test.dart 17:11        main.<fn>
+  
+00:00 +0 -1: Some tests failed.
+
+Exit code: 1

@@ -1,0 +1,9 @@
+$ dn --version
+DartNative 3.45.0-0.1.pre • channel stable • unknown source
+Framework • revision 9689ca2d76 (5 days ago) • 2026-09-15 10:46:36 +0200
+Engine • hash 98a127957cb5426a2ae11b972203484c99d50386 (revision bda36d8992) (18 days ago) • 2026-09-01 16:27:19.000Z
+Tools • Dart 3.12.0 (build 3.12.0-192.0.dev) • DevTools 2.55.0
+
+closed_sdk.stamp: db1e0369d1dbdb3d
+Host: macOS arm64
+Reproduced: 2026-09-20
