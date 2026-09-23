@@ -1,0 +1,43 @@
+name: Repair demo video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/repair-demo-video.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  transcode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure ffmpeg is available
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+
+      - name: Transcode to browser-compatible MP4
+        run: |
+          set -euxo pipefail
+          input='evidence/demo-ios-2026-09-23.mp4'
+          output='evidence/demo-ios-2026-09-23-h264.mp4'
+          ffmpeg -y -i "$input"             -map 0:v:0             -c:v libx264             -preset medium             -crf 20             -pix_fmt yuv420p             -profile:v high             -level 4.1             -tag:v avc1             -movflags +faststart             -brand mp42             -an             "$output"
+          ffprobe -v error             -show_entries stream=codec_name,codec_long_name,profile,pix_fmt,codec_tag_string,width,height             -show_entries format=format_name,format_long_name,duration,size:format_tags=major_brand,compatible_brands             -of default=noprint_wrappers=1 "$output"
+          rm "$input"
+
+      - name: Publish replacement
+        run: |
+          set -euxo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add evidence/demo-ios-2026-09-23.mp4 evidence/demo-ios-2026-09-23-h264.mp4
+          git commit -m 'Replace demo recording with compatible H.264 MP4'
+          git push
