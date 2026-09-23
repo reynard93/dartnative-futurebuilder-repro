@@ -1,0 +1,22 @@
+Recorded 2026-09-23 on iPhone 17 Pro simulator, iOS 26.5 (arm64).
+Command: dn run -d <simulator-id>, followed by R (hot restart).
+Relevant console excerpt from the recorded restart. Unrelated simulator
+startup/indexing output and licence-status messages are omitted.
+Reproduction markers and the full exception stack are unchanged.
+
+Performing hot restart...                                       
+Restarted application in 47ms.
+dartnative: ISSUE42: Demo started; FutureBuilder will mount with a pending future.
+dartnative: ISSUE42: Removing FutureBuilder from the real widget tree.
+dartnative: ISSUE42: Completing the pending future after removal.
+[ERROR:dartnative/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: 'package:dartnative/src/core.dart': Failed assertion: line 166 pos 12: '<optimized out>': setState() called after dispose()
+#0      _AssertionError._doThrowNew (dart:core-patch/errors_patch.dart:67:4)
+#1      _AssertionError._throwNew (dart:core-patch/errors_patch.dart:49:5)
+#2      State.setState (package:dartnative/src/core.dart:166:12)
+#3      _FutureBuilderState._subscribe.<anonymous closure> (package:dartnative/src/widgets/builders.dart:325:9)
+#4      Future._propagateToListeners.handleValueCallback (dart:async/future_impl.dart:948:45)
+#5      Future._propagateToListeners (dart:async/future_impl.dart:977:13)
+#6      Future._completeWithValue (dart:async/future_impl.dart:720:5)
+#7      Future._asyncCompleteWithValue.<anonymous closure> (dart:async/future_impl.dart:804:7)
+#8      _microtaskLoop (dart:async/schedule_microtask.dart:40:35)
+#9      _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)

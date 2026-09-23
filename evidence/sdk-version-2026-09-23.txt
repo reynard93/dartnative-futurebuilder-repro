@@ -1,0 +1,4 @@
+DartNative 3.45.0-0.1.pre • channel stable • unknown source
+Framework • revision 277f9a8c93 (4 days ago) • 2026-09-19 16:25:00 +0200
+Engine • hash 98a127957cb5426a2ae11b972203484c99d50386 (revision bda36d8992) (21 days ago) • 2026-09-01 16:27:19.000Z
+Tools • Dart 3.12.0 (build 3.12.0-192.0.dev) • DevTools 2.55.0
