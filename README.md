@@ -59,18 +59,19 @@ the assertion. Android scaffolding is included, but Android has not been built
 or run for this update. No error-completion or future-replacement coverage is
 claimed.
 
-- [Screen recording of the hot-restart demonstration](evidence/demo-ios-2026-09-23.mp4)
+- [Screen recording — H.264 MP4 replacement](evidence/demo-ios-2026-09-23-h264.mp4)
 - [Matching console excerpt and unhandled exception](evidence/dn-run-ios-2026-09-23.txt)
-- [Screenshot after completion](evidence/demo-completed-2026-09-23.png)
 - [SDK version](evidence/sdk-version-2026-09-23.txt)
 - [Unchanged headless test failing on this SDK](evidence/failing-test-2026-09-23.txt)
 - [Demo source](lib/main.dart)
 
-The console excerpt omits unrelated simulator startup/indexing and
-licence-status messages; the reproduction markers and exception are unchanged.
-The original test file is byte-for-byte unchanged from commit `78b5bc11e89e`.
-SDK binaries, build output, local package configuration, and application files
-from other projects are not included.
+The replacement recording is H.264/AVC (`avc1`) with `yuv420p` pixel format in
+an MP4 container branded `mp42`, with the metadata moved to the front of the
+file for progressive playback. The console excerpt omits unrelated simulator
+startup/indexing and licence-status messages; the reproduction markers and
+exception are unchanged. The original test file is byte-for-byte unchanged from
+commit `78b5bc11e89e`. SDK binaries, build output, local package configuration,
+and application files from other projects are not included.
 
 ---
 
